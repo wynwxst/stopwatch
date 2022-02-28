@@ -38,8 +38,20 @@ s.restart()
 time.sleep(3)
 print(str(s.duration))
 print("after restart ^")
+```
 
+### Development:
+Install buildproj:
 
+`pip install buildproj`
+
+`build --build`
+
+In case of the binary not working:
+
+`python buildbinary.py --build`
+
+All processes are automated except for the sign in for pip, please be sure to also change the version and name in `setup.py`
 
 
 
