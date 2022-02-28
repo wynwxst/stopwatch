@@ -30,13 +30,13 @@ class utils:
       return
     sec = int(seconds) - int(sec)
     if sec < 60:
-      return f"{round(sec)} second(s)"
+      return {"value":round(sec),"type":"seconds"}
     if sec < 360:
-      return f"{round(sec/60)} minute(s)"
+      return {"value":round(sec/60),"type":"minutes"}
     if sec < 21600:
-      return f"{round(sec/360)} hour(s)"
+      return {"value":round(sec/360),"type":"hours"}
     if sec < 86400:
-      return f"{round(sec/21600)} day(s)"
+      return {"value":round(sec/21600),"type":"days"}
 
 class StopWatch:
   def __init__(self):
@@ -75,24 +75,42 @@ class StopWatch:
     self.running = True
 
   def reset(self):
+    self.strt = None
     self.tick = None
     self.pse = None
     self.end = None
     self.pseval = None
     self.paused = None
     self.running = False
-    self.strt = None
   def restart(self):
     
+    self.strt = None
     self.tick = None
     self.pse = None
     self.end = None
     self.pseval = None
     self.paused = None
-    self.running = None
-    self.running = True
+    self.running = False
     self.strt = utils.getsecs()
-    
+  @property
+  def rounded(self):
+    if self.running == False and self.paused == False:
+      return None
+    if self.pse == True:
+      return self.tick
+    if self.end == True:
+      return self.tick
+    if self.paused != None:
+      self.tick = self.pseval - self.strt
+    elif self.pseval != None:
+      tm = self.pseval - self.strt
+      self.tick = utils.getsecs() - self.strt
+      tm = self.pseval - self.strt
+      self.tick -= tm
+    elif self.tick == None:
+      self.tick = utils.getsecs() - self.strt
+
+    return utils.roundcd(self.tick)
   @property
   def duration(self):
     if self.running == False and self.paused == False:

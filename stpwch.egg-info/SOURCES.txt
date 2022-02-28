@@ -1,7 +1,0 @@
-README.md
-setup.py
-stopwatch/__init__.py
-stpwch.egg-info/PKG-INFO
-stpwch.egg-info/SOURCES.txt
-stpwch.egg-info/dependency_links.txt
-stpwch.egg-info/top_level.txt

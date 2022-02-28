@@ -1,6 +1,6 @@
 @function clean:
 rm -rf dist
-rm -rf stopwatch.egg-info
+rm -rf stpwch.egg-info
 \endfunc
 
 @function build:
