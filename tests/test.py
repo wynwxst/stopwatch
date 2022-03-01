@@ -1,4 +1,8 @@
-from stopwatch import StopWatch,utils
+import os
+try:
+  from stopwatch import StopWatch,utils
+except:
+  os.system("pip install stpwch")
 import time
 
 s = StopWatch()

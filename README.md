@@ -46,13 +46,24 @@ Install buildproj:
 
 `pip install buildproj`
 
-`build --build`
+`build`
 
 In case of the binary not working:
 
-`python buildbinary.py --build`
+`python buildbinary.py`
 
-All processes are automated except for the sign in for pip, please be sure to also change the version and name in `setup.py`
+All processes are automated except for the sign in for pip, please be sure to also change the version and name in `setup.py
+
+### Tests:
+Install buildproj:
+
+`pip install buildproj`
+
+`build test`
+
+In case of the binary not working:
+
+`python buildbinary.py test`
 
 
 
